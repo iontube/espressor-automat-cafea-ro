@@ -26,14 +26,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Clean build
-        run: |
-          mv dist/_astro dist/_assets 2>/dev/null || true
-          find dist -name "*.html" -exec sed -i 's/_astro/_assets/g' {} + 2>/dev/null || true
-          find dist -name "*.html" -exec sed -i 's/ data-astro-cid-[a-z0-9]*//g' {} + 2>/dev/null || true
-          if [ -d "dist/_assets" ]; then find dist/_assets -name "*.css" -exec sed -i 's/\[data-astro-cid-[a-z0-9]*\]//g' {} +; fi
-          if [ -d "dist/assets" ]; then find dist/assets -name "*.css" -exec sed -i 's/\[data-astro-cid-[a-z0-9]*\]//g' {} +; fi
-
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy dist --project-name=espressor-automat-cafea-ro --branch=main
         env:
