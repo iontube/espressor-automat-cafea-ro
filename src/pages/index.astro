@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import ProductList from '../components/ProductList.astro';
+import ProductReviews from '../components/ProductReviews.astro';
+import BuyingGuide from '../components/BuyingGuide.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import SubCategories from '../components/SubCategories.astro';
+import FAQ from '../components/FAQ.astro';
+import Conclusion from '../components/Conclusion.astro';
+import Footer from '../components/Footer.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+
+const title = 'Cele mai bune espressoare automate de cafea boabe 2026 – comparatii si ghid de cumparare';
+const description = 'Cel mai bun espressor automat de cafea boabe din 2026. Am comparat 18 modele De\'Longhi, Philips, Krups si Saeco: cu rasnita ceramica, cu spumare lapte, ieftine si profesionale.';
+---
+<Layout title={title} description={description}>
+  <SchemaMarkup />
+  <Navigation />
+  <header>
+    <Hero />
+  </header>
+  <main id="continut-principal">
+    <ProductList />
+    <ProductReviews />
+    <BuyingGuide />
+    <ComparisonTable />
+    <SubCategories />
+    <FAQ />
+    <Conclusion />
+  </main>
+  <footer>
+    <Footer />
+  </footer>
+</Layout>

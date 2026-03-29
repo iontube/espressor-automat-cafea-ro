@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Disclaimer afiliere – espressor-automat-cafea.ro" description="Disclaimer privind linkurile de afiliere de pe espressor-automat-cafea.ro" noindex={true}>
+  <Navigation />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Disclaimer afiliere</h1>
+      <p class="legal-updated">Ultima actualizare: martie 2026</p>
+
+      <h2>Ce sunt linkurile de afiliere?</h2>
+      <p>espressor-automat-cafea.ro participa la programe de afiliere. Asta inseamna ca unele linkuri de pe acest site sunt linkuri de afiliere – cand accesezi un astfel de link si cumperi un produs, noi primim un mic comision din partea magazinului.</p>
+
+      <h2>Te costa ceva in plus?</h2>
+      <p><strong>Nu.</strong> Pretul pe care il platesti este exact acelasi, indiferent daca ajungi pe site-ul magazinului prin linkul nostru de afiliere sau direct. Comisionul nostru vine din bugetul de marketing al magazinului, nu din buzunarul tau.</p>
+
+      <h2>Cum ne influenteaza recomandarile?</h2>
+      <p>Recomandarile de pe acest site sunt bazate pe analiza obiectiva a specificatiilor tehnice, a raportului calitate-pret si a feedback-ului de la cumparatori reali. Valoarea comisionului de afiliere <strong>nu influenteaza</strong> ordinea produselor sau recomandarile noastre.</p>
+      <p>Includem in selectie produse pe care le consideram cu adevarat relevante si utile pentru vizitatorii nostri, indiferent de comisionul oferit.</p>
+
+      <h2>Cu ce platforme de afiliere lucram?</h2>
+      <p>In prezent, folosim urmatoarele retele si programe de afiliere:</p>
+      <ul>
+        <li><strong>Profitshare</strong> – pentru linkuri catre eMAG si alte magazine partenere</li>
+      </ul>
+      <p>Lista se poate modifica in timp.</p>
+
+      <h2>De ce folosim linkuri de afiliere?</h2>
+      <p>Comisioanele de afiliere ne ajuta sa mentinem site-ul functional, sa actualizam continutul si sa investim in cercetare pentru articole noi. Fara aceste venituri, nu am putea oferi informatii gratuite si actualizate.</p>
+
+      <h2>Transparenta</h2>
+      <p>Credem in transparenta totala. De aceea:</p>
+      <ul>
+        <li>Toate linkurile de afiliere sunt marcate cu atributul <code>rel="sponsored"</code> conform cerintelor Google</li>
+        <li>Disclaimer-ul de afiliere este vizibil pe pagina principala, in footer</li>
+        <li>Aceasta pagina explica clar cum functioneaza modelul nostru</li>
+      </ul>
+
+      <h2>Intrebari?</h2>
+      <p>Daca ai orice intrebare legata de linkurile de afiliere sau de modul in care selectam produsele, ne poti scrie prin pagina de <a href="/contact">Contact</a>.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:.5rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+  .legal-updated{color:var(--c-text-light);font-size:.9rem;margin-bottom:2rem}
+  code{background:var(--c-surface);padding:.15rem .4rem;border-radius:4px;font-size:.85rem}
+</style>

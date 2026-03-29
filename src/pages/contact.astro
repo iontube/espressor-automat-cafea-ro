@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact – espressor-automat-cafea.ro" description="Contacteaza echipa espressor-automat-cafea.ro" noindex={true}>
+  <Navigation />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Contact</h1>
+
+      <p>Daca ai intrebari, sugestii sau vrei sa ne semnalezi o eroare pe site, ne poti contacta prin email:</p>
+
+      <div class="contact-box">
+        <p><strong>Email:</strong> contact@espressor-automat-cafea.ro</p>
+      </div>
+
+      <p>Incercam sa raspundem in maximum 48 de ore lucratoare.</p>
+
+      <h2>Ce poti sa ne scrii</h2>
+      <ul>
+        <li>Intrebari despre espressoarele prezentate pe site</li>
+        <li>Semnalarea unor informatii incorecte sau neactualizate</li>
+        <li>Sugestii de produse pe care ar trebui sa le includem</li>
+        <li>Solicitari legate de datele tale personale (conform GDPR)</li>
+        <li>Propuneri de colaborare</li>
+      </ul>
+
+      <h2>Ce nu putem face</h2>
+      <p>Nu suntem un magazin online si nu vindem produse direct. Pentru probleme legate de comenzi, livrari, garantii sau retururi, te rugam sa contactezi direct magazinul de la care ai cumparat produsul.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:1rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+  .contact-box{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:1.5rem 0}
+  .contact-box p{margin:0;color:var(--c-text)}
+</style>

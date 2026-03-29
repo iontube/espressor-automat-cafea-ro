@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Termeni si conditii – espressor-automat-cafea.ro" description="Termeni si conditii de utilizare a site-ului espressor-automat-cafea.ro" noindex={true}>
+  <Navigation />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Termeni si conditii</h1>
+      <p class="legal-updated">Ultima actualizare: martie 2026</p>
+
+      <h2>1. Acceptarea termenilor</h2>
+      <p>Prin accesarea si utilizarea site-ului espressor-automat-cafea.ro, accepti acesti termeni si conditii in totalitate. Daca nu esti de acord cu oricare dintre acestia, te rugam sa nu utilizezi site-ul.</p>
+
+      <h2>2. Descrierea serviciului</h2>
+      <p>espressor-automat-cafea.ro este un site informativ care ofera comparatii, analize si recomandari de espressoare automate de cafea. Site-ul contine linkuri de afiliere catre magazine online. Nu vindem produse direct si nu suntem un magazin online.</p>
+
+      <h2>3. Linkuri de afiliere</h2>
+      <p>Site-ul contine linkuri de afiliere. Cand accesezi un link de afiliere si efectuezi o achizitie, este posibil sa primim un comision de la magazinul respectiv. Acest lucru nu implica niciun cost suplimentar pentru tine si nu influenteaza pretul produsului.</p>
+      <p>Recomandarile noastre sunt bazate pe analiza obiectiva a specificatiilor si a raportului calitate-pret, nu pe valoarea comisionului de afiliere.</p>
+
+      <h2>4. Acuratetea informatiilor</h2>
+      <p>Depunem eforturi pentru a mentine informatiile de pe site cat mai corecte si actualizate. Cu toate acestea, specificatiile produselor, disponibilitatea si preturile se pot schimba fara notificare prealabila. Recomandam verificarea detaliilor pe site-ul magazinului inainte de achizitie.</p>
+      <p>Nu garantam exactitatea, completitudinea sau actualitatea informatiilor prezentate.</p>
+
+      <h2>5. Proprietate intelectuala</h2>
+      <p>Continutul site-ului (texte, imagini, design, cod) este protejat de legile dreptului de autor. Nu este permisa reproducerea, distribuirea sau modificarea continutului fara acordul nostru scris.</p>
+      <p>Imaginile produselor sunt proprietatea producatorilor sau magazinelor respective si sunt utilizate in scop informativ.</p>
+
+      <h2>6. Limitarea raspunderii</h2>
+      <p>espressor-automat-cafea.ro nu este responsabil pentru:</p>
+      <ul>
+        <li>Deciziile de cumparare luate pe baza informatiilor de pe site</li>
+        <li>Calitatea, livrarea sau garantia produselor achizitionate prin linkurile de afiliere</li>
+        <li>Continutul sau practicile site-urilor terte catre care facem trimitere</li>
+        <li>Eventualele erori sau omisiuni din continutul site-ului</li>
+      </ul>
+
+      <h2>7. Disponibilitatea site-ului</h2>
+      <p>Ne rezervam dreptul de a modifica, suspenda sau intrerupe functionarea site-ului in orice moment, fara notificare prealabila.</p>
+
+      <h2>8. Legea aplicabila</h2>
+      <p>Acesti termeni sunt guvernati de legile din Romania. Orice litigiu va fi solutionat de instantele competente din Romania.</p>
+
+      <h2>9. Modificari</h2>
+      <p>Ne rezervam dreptul de a modifica acesti termeni in orice moment. Continuarea utilizarii site-ului dupa modificari constituie acceptarea noilor termeni.</p>
+
+      <h2>10. Contact</h2>
+      <p>Pentru intrebari legate de acesti termeni, ne poti contacta prin pagina de <a href="/contact">Contact</a>.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:.5rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+  .legal-updated{color:var(--c-text-light);font-size:.9rem;margin-bottom:2rem}
+</style>

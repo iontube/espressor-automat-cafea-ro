@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Politica de confidentialitate – espressor-automat-cafea.ro" description="Politica de confidentialitate a site-ului espressor-automat-cafea.ro" noindex={true}>
+  <Navigation />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Politica de confidentialitate</h1>
+      <p class="legal-updated">Ultima actualizare: martie 2026</p>
+
+      <h2>1. Cine suntem</h2>
+      <p>Site-ul espressor-automat-cafea.ro este operat de o persoana fizica / entitate cu sediul in Romania. Adresa site-ului este: <strong>https://espressor-automat-cafea.ro</strong>.</p>
+
+      <h2>2. Ce date personale colectam si de ce</h2>
+      <p>Acest site nu colecteaza date personale in mod direct. Nu avem formulare de inregistrare, conturi de utilizator sau sistem de comentarii.</p>
+      <p>Cand vizitezi site-ul, serverele pot inregistra automat informatii tehnice precum adresa IP, tipul de browser, sistemul de operare, paginile accesate si ora vizitei. Aceste date sunt folosite exclusiv in scopuri de analiza statistica si securitate.</p>
+
+      <h2>3. Cookie-uri</h2>
+      <p>Folosim cookie-uri pentru a analiza traficul si pentru functionarea corecta a site-ului. Detalii complete gasesti in <a href="/politica-cookies">Politica de cookies</a>.</p>
+
+      <h2>4. Linkuri catre alte site-uri</h2>
+      <p>Site-ul contine linkuri de afiliere catre magazine online (de exemplu eMAG). Cand accesezi aceste linkuri, vei fi redirectionat catre site-ul respectiv, care are propria politica de confidentialitate. Nu avem control asupra datelor colectate de site-urile terte.</p>
+
+      <h2>5. Servicii terte</h2>
+      <p>Putem folosi urmatoarele servicii terte care pot colecta date:</p>
+      <ul>
+        <li><strong>Google Analytics</strong> – pentru statistici de trafic (poate folosi cookie-uri)</li>
+        <li><strong>Google Fonts</strong> – pentru fonturile afisate pe site</li>
+        <li><strong>Cloudflare</strong> – pentru hosting si securitate</li>
+        <li><strong>Profitshare / retele de afiliere</strong> – pentru tracking-ul linkurilor de afiliere</li>
+      </ul>
+
+      <h2>6. Drepturile tale</h2>
+      <p>Conform GDPR, ai dreptul sa:</p>
+      <ul>
+        <li>Soliciti acces la datele tale personale</li>
+        <li>Soliciti rectificarea sau stergerea datelor</li>
+        <li>Te opui prelucrarii datelor</li>
+        <li>Soliciti portabilitatea datelor</li>
+        <li>Depui o plangere la ANSPDCP (Autoritatea Nationala de Supraveghere a Prelucrarii Datelor cu Caracter Personal)</li>
+      </ul>
+
+      <h2>7. Contact</h2>
+      <p>Pentru orice intrebari legate de datele tale personale, ne poti contacta prin pagina de <a href="/contact">Contact</a>.</p>
+
+      <h2>8. Modificari ale politicii</h2>
+      <p>Ne rezervam dreptul de a actualiza aceasta politica. Data ultimei actualizari este afisata la inceputul paginii.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:.5rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+  .legal-updated{color:var(--c-text-light);font-size:.9rem;margin-bottom:2rem}
+</style>

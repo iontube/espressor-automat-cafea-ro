@@ -1,0 +1,184 @@
+---
+import products from '../data/products.json';
+import reviews from '../data/reviews.json';
+
+const reviewData = reviews as Record<string, {
+  title: string;
+  summary: string;
+  content: string;
+  highlights?: string[];
+  pros: string[];
+  cons: string[];
+  verdict: string;
+}>;
+---
+<section class="section section--alt" id="review-uri">
+  <div class="container">
+    <div class="section-eyebrow">Analize detaliate</div>
+    <h2 class="section-title">Recenzie detaliata pentru fiecare espressor automat</h2>
+    <p class="section-desc">Review <strong>espressor automat De'Longhi</strong>, <strong>espressor automat Krups</strong>, <strong>espressor automat Philips</strong> si <strong>Saeco</strong> – ce face bine, unde compromite si pentru cine are sens.</p>
+
+    <div class="rv-toc-wrap"><nav class="rv-toc" aria-label="Salt rapid la review">
+      {products.map(product => {
+        const review = reviewData[product.id];
+        if (!review) return null;
+        const short = product.name.replace(/^Espressor\s*(automat\s*)?/i, '');
+        return <a href={`#review-${product.id}`}>{short}</a>;
+      })}
+    </nav></div>
+
+    {products.map((product, idx) => {
+      const review = reviewData[product.id];
+      if (!review) return null;
+      const promoAfter = idx === 5 || idx === 11;
+      return (
+        <Fragment>
+        {promoAfter && idx === 5 && (
+          <div class="promo-inline">
+            <span class="promo-inline-text">Nu ai gasit ce cauti?</span>
+            <a href="/out/top-favorite" class="btn btn-cta btn-sm" target="_blank" rel="nofollow noopener sponsored">Vezi top favorite pe eMAG →</a>
+          </div>
+        )}
+        {promoAfter && idx === 11 && (
+          <div class="promo-inline">
+            <span class="promo-inline-text">Cauti un pret mai bun?</span>
+            <a href="/out/super-pret" class="btn btn-cta btn-sm" target="_blank" rel="nofollow noopener sponsored">Vezi espressoare la super pret →</a>
+          </div>
+        )}
+        <article class="review" id={`review-${product.id}`}>
+          <div class="review-header">
+            <div class="review-img">
+              <img src={product.localImage} alt={product.name} width="180" height="135" loading="lazy" />
+            </div>
+            <div class="review-intro">
+              <h3>{review.title}</h3>
+              <p class="review-summary">{review.summary}</p>
+              <div class="review-specs">
+                <div class="review-spec"><span class="spec-label">Presiune</span><span class="spec-value">{product.pressure}</span></div>
+                <div class="review-spec"><span class="spec-label">Rasnita</span><span class="spec-value">{product.grinder}</span></div>
+                <div class="review-spec"><span class="spec-label">Rezervor</span><span class="spec-value">{product.waterTank}</span></div>
+                <div class="review-spec"><span class="spec-label">Putere</span><span class="spec-value">{product.power}</span></div>
+                <div class="review-spec"><span class="spec-label">Spumare</span><span class="spec-value">{product.milkSystem}</span></div>
+                <div class="review-spec"><span class="spec-label">Bauturi</span><span class="spec-value">{product.drinks}</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-body">
+            {review.content.split('\n\n').map(paragraph => (
+              <p set:html={paragraph} />
+            ))}
+          </div>
+
+          {review.highlights && (
+            <div class="rv-keys">
+              <div class="rv-keys-label">Esential</div>
+              <div class="rv-keys-list">
+                {review.highlights.map((h, i) => (
+                  <div class="rv-key">
+                    <span class="rv-key-num">{String(i + 1).padStart(2, '0')}</span>
+                    <span class="rv-key-text">{h}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="rv-eval">
+            <div class="rv-eval-side rv-eval-pros">
+              <div class="rv-eval-label"><span class="rv-dot rv-dot--g"></span>Avantaje</div>
+              {review.pros.map(pro => (
+                <div class="rv-eval-item">{pro}</div>
+              ))}
+            </div>
+            <div class="rv-eval-side rv-eval-cons">
+              <div class="rv-eval-label"><span class="rv-dot rv-dot--r"></span>Dezavantaje</div>
+              {review.cons.map(con => (
+                <div class="rv-eval-item">{con}</div>
+              ))}
+            </div>
+          </div>
+
+          <div class="rv-final">
+            <div class="rv-final-content">
+              <span class="rv-final-mark">"</span>
+              <p>{review.verdict}</p>
+            </div>
+            <a href={`/out/${product.id}`} class="btn btn-cta rv-final-cta" target="_blank" rel="nofollow noopener sponsored">
+              <span>Verifica pret</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+        </Fragment>
+      );
+    })}
+  </div>
+</section>
+
+<div class="mobile-sticky-cta" id="mobileCta">
+  <span class="mobile-sticky-cta-name" id="mobileCtaName"></span>
+  <a class="btn btn-cta" id="mobileCtaLink" href="#" target="_blank" rel="nofollow noopener sponsored">Verifica pret</a>
+</div>
+
+<script>
+  (function(){
+    const bar = document.getElementById('mobileCta');
+    const nameEl = document.getElementById('mobileCtaName');
+    const linkEl = document.getElementById('mobileCtaLink');
+    if(!bar || !nameEl || !linkEl) return;
+    const reviews = document.querySelectorAll('article.review');
+    if(!reviews.length) return;
+    let currentId = '';
+    var visibleReviews = new Set();
+    function isMobile(){return window.matchMedia('(max-width:768px)').matches}
+    const observer = new IntersectionObserver(function(entries){
+      if(!isMobile()) return;
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          visibleReviews.add(entry.target);
+          const article = entry.target;
+          const id = article.id.replace('review-','');
+          const h3 = article.querySelector('h3');
+          if(h3 && id !== currentId){
+            currentId = id;
+            nameEl.textContent = h3.textContent || '';
+            linkEl.href = '/out/' + id;
+            bar.classList.add('visible');
+          }
+        } else {
+          visibleReviews.delete(entry.target);
+          if(visibleReviews.size === 0){
+            bar.classList.remove('visible');
+            currentId = '';
+          }
+        }
+      });
+    },{threshold:0.15});
+    reviews.forEach(function(r){observer.observe(r)});
+    window.addEventListener('scroll',function(){
+      if(window.scrollY < 600 || !isMobile()){bar.classList.remove('visible');currentId=''}
+    },{passive:true});
+  })();
+
+  // Drag-to-scroll for TOC
+  (function(){
+    const toc = document.querySelector('.rv-toc');
+    if(!toc) return;
+    let isDown = false, startX = 0, scrollL = 0;
+    toc.addEventListener('mousedown', function(e){
+      isDown = true; toc.classList.add('dragging');
+      startX = e.pageX - toc.offsetLeft;
+      scrollL = toc.scrollLeft;
+    });
+    toc.addEventListener('mouseleave', function(){ isDown = false; toc.classList.remove('dragging'); });
+    toc.addEventListener('mouseup', function(){ isDown = false; toc.classList.remove('dragging'); });
+    toc.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - toc.offsetLeft;
+      toc.scrollLeft = scrollL - (x - startX);
+    });
+  })();
+</script>
+

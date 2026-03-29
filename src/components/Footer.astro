@@ -1,0 +1,28 @@
+---
+const year = new Date().getFullYear();
+const legalLinks = [
+  { href: '/politica-confidentialitate', label: 'Confidentialitate' },
+  { href: '/politica-cookies', label: 'Cookies' },
+  { href: '/termeni-si-conditii', label: 'Termeni' },
+  { href: '/disclaimer-afiliere', label: 'Disclaimer' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<div class="footer">
+  <div class="container">
+    <nav class="footer-links" aria-label="Pagini legale">
+      <a href="/despre-noi">Despre noi</a>
+      {legalLinks.map(l => <a href={l.href} rel="nofollow">{l.label}</a>)}
+    </nav>
+    <p class="footer-date">Actualizat: <time datetime="2026-03">martie 2026</time></p>
+    <p class="footer-copy">&copy; {year} espressor-automat-cafea.ro</p>
+  </div>
+</div>
+
+<style>
+  .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.25rem;margin-bottom:1rem}
+  .footer-links a{font-size:.78rem;color:var(--c-text-light);transition:color .2s}
+  .footer-links a:hover{color:var(--c-gold)}
+  .footer-date{font-size:.75rem;margin-bottom:.35rem}
+  .footer-copy{font-size:.78rem;margin:0}
+</style>

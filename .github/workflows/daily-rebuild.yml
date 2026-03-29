@@ -1,0 +1,39 @@
+name: Daily Rebuild
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Every day at 6 AM UTC (9 AM Romania)
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Generate redirects
+        run: node scripts/generate-redirects.mjs
+
+      - name: Build site
+        run: npm run build
+
+      - name: Clean build
+        run: |
+          mv dist/_astro dist/_assets 2>/dev/null || true
+          find dist -name "*.html" -exec sed -i 's/_astro/_assets/g' {} +
+          find dist -name "*.html" -exec sed -i 's/ data-astro-cid-[a-z0-9]*//g' {} +
+          find dist/_assets -name "*.css" -exec sed -i 's/\[data-astro-cid-[a-z0-9]*\]//g' {} +
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist --project-name=espressor-automat-cafea-ro --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -1,0 +1,60 @@
+---
+const faqs = [
+  {
+    q: 'Care este cel mai bun espressor automat pentru acasa?',
+    a: 'Depinde de buget si preferinte. Pentru majoritatea, un De\'Longhi Magnifica sau Philips seria 2200 ofera cel mai bun raport calitate-pret: rasnita integrata, cafea buna si intretinere simpla.',
+  },
+  {
+    q: 'Merita un espressor automat sau mai bine unul manual?',
+    a: 'Daca vrei confort si consistenta – automat. Daca vrei control total si iti place procesul – manual. Un espressor automat face totul singur in 60 de secunde, de la macinare la extractie.',
+  },
+  {
+    q: 'Cat costa o cafea la espressor automat?',
+    a: 'In medie, 0.50-1 RON per ceasca, in functie de boabele folosite. La 2 cafele pe zi, economisesti peste 4.000 RON pe an fata de cafeaua de la cafenea.',
+  },
+  {
+    q: 'Ce boabe de cafea sa folosesc?',
+    a: 'Boabe proaspat prajite, cu maxim 4-6 saptamani de la prajire. Evita boabele foarte uleioase. Un blend 80% Arabica / 20% Robusta e un punct bun de start pentru espresso.',
+  },
+  {
+    q: 'Cat de des trebuie curatat un espressor automat?',
+    a: 'Tava de scurgere si recipientul de zaturi – zilnic sau la 2-3 zile. Grupul de preparare – saptamanal. Decalcifiere – la 2-3 luni sau cand iti semnaleaza aparatul.',
+  },
+  {
+    q: 'Ce inseamna 15 bari presiune?',
+    a: '15 bari este presiunea maxima a pompei. Un espresso bun se extrage la ~9 bari presiune efectiva. Orice espressor cu pompa de 15 bari e suficient.',
+  },
+  {
+    q: 'Espressorul automat face cafea la fel de buna ca la cafenea?',
+    a: 'Cu boabe bune si macinare corecta, da – foarte aproape. Un espressor automat ofera consistenta: aceeasi cafea buna, de fiecare data.',
+  },
+  {
+    q: 'Care sunt cele mai fiabile branduri?',
+    a: 'De\'Longhi si Philips/Saeco domina piata si au cel mai bun service in Romania. Jura si Krups sunt de asemenea fiabile, dar cu piese de schimb mai scumpe.',
+  },
+];
+---
+<section class="section section--alt" id="faq">
+  <div class="container">
+    <div class="section-eyebrow">Intrebari frecvente</div>
+    <h2 class="section-title">Intrebari frecvente despre espressoare automate de cafea</h2>
+    <p class="section-desc">Raspunsuri directe la ce se intreaba cel mai des inainte de o achizitie.</p>
+
+    <div class="faq-grid">
+      {faqs.map(faq => (
+        <div class="faq-card" data-faq-card>
+          <div class="faq-card-q">{faq.q}</div>
+          <div class="faq-card-a"><p>{faq.a}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-faq-card]').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  });
+</script>

@@ -1,0 +1,46 @@
+---
+import ProductCard from './ProductCard.astro';
+import products from '../data/products.json';
+
+const subcategories = [
+  {
+    id: 'buget',
+    title: 'Espressoare automate ieftine si bune',
+    intro: 'Espressoare automate sub 2.000 RON cu rasnita integrata si cafea de calitate. Am selectat modelele care ofera cel mai mult la acest pret.',
+    filter: (p: any) => p.subcategories?.includes('buget'),
+  },
+  {
+    id: 'cappuccino',
+    title: 'Espressoare automate cu spumare lapte pentru cappuccino si latte',
+    intro: 'Daca bei cappuccino sau latte zilnic, ai nevoie de un espressor automat cu recipient lapte sau LatteGo. Modelele de mai jos au spumare automata si fac cappuccino la un buton.',
+    filter: (p: any) => p.subcategories?.includes('cappuccino'),
+  },
+  {
+    id: 'premium',
+    title: 'Espressoare automate profesionale si premium',
+    intro: 'Rasnita ceramica cu multe trepte, ecran tactil color, profile multiple de utilizator si 15+ bauturi. Pentru cine vrea un espressor automat de cafea de gama inalta.',
+    filter: (p: any) => p.subcategories?.includes('premium'),
+  },
+];
+---
+<section class="section" id="categorii">
+  <div class="container">
+    <span class="section-label">Alege dupa situatie</span>
+    <h2 class="section-title">Espressoare automate pe categorii</h2>
+    <p class="section-desc"><strong>Espressor automat ieftin</strong>, <strong>espressor automat cappuccino</strong> cu spumare automata sau <strong>espressor automat profesional</strong>? Am grupat modelele dupa ce cauti.</p>
+    <p class="section-intro">Daca stii deja ce cauti, sari direct la categoria ta. Fiecare include doar modelele relevante din selectia completa, cu aceleasi specificatii si linkuri.</p>
+
+    {subcategories.map(sub => {
+      const filtered = products.filter(sub.filter);
+      return filtered.length > 0 ? (
+        <div class="subcat" id={`cat-${sub.id}`}>
+          <h3>{sub.title}</h3>
+          <p class="subcat-intro">{sub.intro}</p>
+          <div class="subcat-grid">
+            {filtered.map(product => <ProductCard product={product} />)}
+          </div>
+        </div>
+      ) : null;
+    })}
+  </div>
+</section>

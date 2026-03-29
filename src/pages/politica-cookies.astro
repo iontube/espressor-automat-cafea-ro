@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Politica de cookies – espressor-automat-cafea.ro" description="Politica de cookies a site-ului espressor-automat-cafea.ro" noindex={true}>
+  <Navigation />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Politica de cookies</h1>
+      <p class="legal-updated">Ultima actualizare: martie 2026</p>
+
+      <h2>1. Ce sunt cookie-urile?</h2>
+      <p>Cookie-urile sunt fisiere text mici stocate pe dispozitivul tau atunci cand vizitezi un site web. Ele permit site-ului sa retina informatii despre vizita ta, cum ar fi preferintele de limba sau alte setari, facilitand o experienta mai buna la vizitele ulterioare.</p>
+
+      <h2>2. Ce cookie-uri folosim</h2>
+
+      <h3>Cookie-uri esentiale</h3>
+      <p>Necesare pentru functionarea de baza a site-ului. Nu pot fi dezactivate.</p>
+
+      <h3>Cookie-uri de analiza</h3>
+      <p>Folosim Google Analytics pentru a intelege cum interactioneaza vizitatorii cu site-ul. Aceste cookie-uri colecteaza informatii anonime despre paginile vizitate, timpul petrecut pe site si sursa traficului.</p>
+      <ul>
+        <li><strong>_ga</strong> – identificator unic pentru Google Analytics (expirare: 2 ani)</li>
+        <li><strong>_gid</strong> – identificator pentru sesiunea curenta (expirare: 24 ore)</li>
+        <li><strong>_gat</strong> – limitarea ratei de colectare (expirare: 1 minut)</li>
+      </ul>
+
+      <h3>Cookie-uri de la terti</h3>
+      <p>Linkurile de afiliere de pe site pot seta cookie-uri din partea retelelor de afiliere (Profitshare, etc.) pentru a urmari achizitiile efectuate prin intermediul nostru. Aceste cookie-uri sunt setate de terti si sunt supuse politicilor lor de confidentialitate.</p>
+
+      <h2>3. Cum poti controla cookie-urile</h2>
+      <p>Poti controla si/sau sterge cookie-urile dupa preferinta. Majoritatea browserelor iti permit sa:</p>
+      <ul>
+        <li>Vezi ce cookie-uri sunt stocate si sa le stergi individual</li>
+        <li>Blochezi cookie-urile de la terti</li>
+        <li>Blochezi cookie-urile de la anumite site-uri</li>
+        <li>Blochezi setarea tuturor cookie-urilor</li>
+        <li>Stergi toate cookie-urile la inchiderea browserului</li>
+      </ul>
+      <p>Daca blochezi cookie-urile, este posibil ca unele functionalitati ale site-ului sa nu functioneze corect.</p>
+
+      <h2>4. Mai multe informatii</h2>
+      <p>Pentru mai multe detalii despre cookie-uri in general, poti vizita <strong>allaboutcookies.org</strong>.</p>
+      <p>Pentru intrebari legate de cookie-urile folosite pe acest site, ne poti contacta prin pagina de <a href="/contact">Contact</a>.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:.5rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page h3{margin-top:1.25rem;font-size:1.05rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+  .legal-updated{color:var(--c-text-light);font-size:.9rem;margin-bottom:2rem}
+</style>

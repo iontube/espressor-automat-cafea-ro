@@ -1,0 +1,33 @@
+---
+import products from '../data/products.json';
+---
+<section class="section" id="comparatie">
+  <div class="container">
+    <div class="section-eyebrow">Comparatie directa</div>
+    <h2 class="section-title">Tabel comparativ espressoare automate de cafea boabe</h2>
+    <p class="section-desc">Presiune, rasnita, <strong>sistem de spumare a laptelui</strong> si numar de bauturi – toate modelele <strong>De'Longhi</strong>, <strong>Philips</strong>, <strong>Krups</strong> si <strong>Saeco</strong> comparate direct.</p>
+
+    <div class="compare-scroll">
+      <div class="compare-row compare-row-head">
+        <span>Model</span>
+        <span>Presiune</span>
+        <span>Rasnita</span>
+        <span>Rezervor</span>
+        <span>Spumare</span>
+        <span>Bauturi</span>
+        <span></span>
+      </div>
+      {products.map(p => (
+        <div class="compare-row">
+          <span class="compare-cell" data-label="">{p.name}</span>
+          <span class="compare-cell" data-label="Presiune: ">{p.pressure}</span>
+          <span class="compare-cell" data-label="Rasnita: ">{p.grinder}</span>
+          <span class="compare-cell" data-label="Rezervor: ">{p.waterTank}</span>
+          <span class="compare-cell" data-label="Spumare: ">{p.milkSystem}</span>
+          <span class="compare-cell" data-label="Bauturi: ">{p.drinks}</span>
+          <span class="compare-cell"><a href={`/out/${p.id}`} target="_blank" rel="nofollow noopener sponsored">Oferta →</a></span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

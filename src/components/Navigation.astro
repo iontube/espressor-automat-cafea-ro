@@ -1,0 +1,121 @@
+---
+const links = [
+  { href: '#produse', label: 'Espressoare' },
+  { href: '#review-uri', label: 'Analize' },
+  { href: '#ghid', label: 'Cum alegi' },
+  { href: '#comparatie', label: 'Comparatie' },
+  { href: '#categorii', label: 'Categorii' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+<nav class="nav" aria-label="Navigare principala">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand" aria-label="Espressor Automat Cafea - pagina principala"><img src="/assets/images/logo-espressor-automat-cafea.webp" alt="Espressor Automat Cafea" width="200" height="50"></a>
+    <div class="nav-links nav-links--desktop">
+      {links.map(l => <a href={l.href}>{l.label}</a>)}
+    </div>
+    <button class="nav-toggle" aria-label="Deschide meniul" aria-expanded="false" data-menu-toggle>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+        <rect y="2" width="18" height="2" rx="1"/>
+        <rect y="8" width="18" height="2" rx="1"/>
+        <rect y="14" width="18" height="2" rx="1"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" data-mobile-menu>
+  <div class="mobile-menu-overlay" data-menu-close></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="nav-brand"><img src="/assets/images/logo-espressor-automat-cafea.webp" alt="Espressor Automat Cafea" width="200" height="50"></span>
+      <button class="mobile-menu-close" aria-label="Inchide meniul" data-menu-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      {links.map(l => <a href={l.href} data-menu-close>{l.label}</a>)}
+    </div>
+    <div class="mobile-menu-cta">
+      <a href="#produse" class="btn btn-gold" data-menu-close>Vezi espressoarele</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .nav-brand img{height:44px;width:auto}
+  .nav-links--desktop{display:flex;gap:.15rem}
+  .nav-links--desktop a.active{color:var(--c-gold);background:var(--c-gold-light)}
+  .nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:var(--c-surface-raised);border:1px solid var(--c-border);cursor:pointer;border-radius:var(--radius-sm);transition:all .2s;color:var(--c-text-mid)}
+  .nav-toggle:hover{border-color:var(--c-gold);color:var(--c-gold)}
+
+  .mobile-menu{position:fixed;inset:0;z-index:200;pointer-events:none;visibility:hidden}
+  .mobile-menu.is-open{pointer-events:auto;visibility:visible}
+  .mobile-menu-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:opacity .3s;backdrop-filter:blur(4px)}
+  .mobile-menu.is-open .mobile-menu-overlay{opacity:1}
+  .mobile-menu-panel{position:absolute;top:0;right:0;bottom:0;width:min(300px,85vw);background:var(--c-bg);border-left:1px solid var(--c-border);transform:translateX(100%);transition:transform .35s var(--transition);display:flex;flex-direction:column;overflow-y:auto}
+  .mobile-menu.is-open .mobile-menu-panel{transform:translateX(0)}
+  .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--c-border-light)}
+  .mobile-menu-close{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:none;background:var(--c-surface-raised);color:var(--c-text-mid);cursor:pointer;transition:all .2s}
+  .mobile-menu-close:hover{color:var(--c-gold)}
+  .mobile-menu-links{display:flex;flex-direction:column;padding:1rem .75rem;gap:.15rem;flex:1}
+  .mobile-menu-links a{display:flex;align-items:center;padding:.9rem 1rem;border-radius:var(--radius-sm);font-size:.95rem;font-weight:600;color:var(--c-text-mid);transition:all .15s;text-decoration:none}
+  .mobile-menu-links a:hover{background:var(--c-gold-light);color:var(--c-gold)}
+  .mobile-menu-cta{padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--c-border-light)}
+  .mobile-menu-cta .btn{width:100%;justify-content:center}
+
+  @media(max-width:768px){
+    .nav-links--desktop{display:none}
+    .nav-toggle{display:flex}
+  }
+  @media(min-width:769px){.mobile-menu{display:none}}
+</style>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]') as HTMLButtonElement;
+  const menu = document.querySelector('[data-mobile-menu]') as HTMLElement;
+  const closers = document.querySelectorAll('[data-menu-close]');
+  function openMenu(){menu.classList.add('is-open');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closeMenu():openMenu()});
+  closers.forEach(el=>el.addEventListener('click',closeMenu));
+
+  // Hide nav on scroll down, show on scroll up
+  (function(){
+    const nav = document.querySelector('.nav') as HTMLElement;
+    if(!nav) return;
+    let lastY = 0;
+    window.addEventListener('scroll', function(){
+      const y = window.scrollY;
+      if(y > 100 && y > lastY){
+        nav.style.transform = 'translateY(-100%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastY = y;
+    }, {passive: true});
+    nav.style.transition = 'transform .3s ease';
+  })();
+
+  // Active nav section highlight on scroll
+  (function(){
+    const navLinks = document.querySelectorAll('.nav-links--desktop a[href^="#"]');
+    if(!navLinks.length) return;
+    const sections: Element[] = [];
+    const linkMap = new Map<Element, HTMLAnchorElement>();
+    navLinks.forEach(function(link){
+      const href = link.getAttribute('href');
+      if(!href) return;
+      const section = document.querySelector(href);
+      if(section){sections.push(section);linkMap.set(section, link as HTMLAnchorElement)}
+    });
+    const observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        const link = linkMap.get(entry.target);
+        if(!link) return;
+        if(entry.isIntersecting){link.classList.add('active')}else{link.classList.remove('active')}
+      });
+    },{rootMargin:'-20% 0px -60% 0px',threshold:0});
+    sections.forEach(function(s){observer.observe(s)});
+  })();
+</script>

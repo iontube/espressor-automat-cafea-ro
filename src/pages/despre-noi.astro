@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Despre noi – espressor-automat-cafea.ro" description="Cine suntem si de ce am creat espressor-automat-cafea.ro – un site independent de comparatii si recomandari de espressoare automate.">
+  <Navigation />
+  <main class="legal-page" id="continut-principal">
+    <div class="container">
+      <h1>Despre espressor-automat-cafea.ro</h1>
+
+      <p>espressor-automat-cafea.ro este un site independent de comparatii si recomandari, creat pentru a ajuta iubitorii de cafea din Romania sa gaseasca espressorul automat potrivit, fara sa piarda ore pe forumuri si pagini de magazin.</p>
+
+      <h2>De ce exista acest site</h2>
+      <p>Cand cauti un espressor automat, optiunile par infinite – zeci de modele, specificatii tehnice greu de comparat si recenzii contradictorii. Am creat espressor-automat-cafea.ro ca sa simplificam procesul: analizam specificatiile reale, comparam modelele intre ele si oferim recomandari clare, bazate pe date, nu pe pareri subiective.</p>
+
+      <h2>Cum selectam produsele</h2>
+      <p>Fiecare espressor de pe site trece printr-un proces de verificare:</p>
+      <ul>
+        <li>Analizam specificatiile tehnice oficiale de la producator</li>
+        <li>Verificam tipul de rasnita, presiunea, sistemul de spumare si capacitatea rezervorului</li>
+        <li>Comparam raportul calitate-pret cu modele similare din aceeasi categorie</li>
+        <li>Citim feedback-ul cumparatorilor reali din mai multe surse</li>
+        <li>Verificam disponibilitatea si istoricul de pret pe piata din Romania</li>
+      </ul>
+      <p>Nu includem produse doar pentru ca au un comision de afiliere mai mare. Criteriul principal este intotdeauna relevanta si valoarea pentru cumparator.</p>
+
+      <h2>Cum ne finantam</h2>
+      <p>Site-ul se finanteaza prin linkuri de afiliere. Cand accesezi un link de pe site si cumperi un produs, este posibil sa primim un mic comision de la magazin. Asta nu te costa nimic in plus si nu influenteaza recomandarea – este pur si simplu modul in care un site gratuit poate functiona pe termen lung.</p>
+      <p>Detalii complete gasesti pe pagina de <a href="/disclaimer-afiliere">Disclaimer afiliere</a>.</p>
+
+      <h2>Ce ne diferentiaza</h2>
+      <ul>
+        <li><strong>Analiza obiectiva</strong> – nu inventam review-uri si nu punem ratinguri false</li>
+        <li><strong>Specificatii reale</strong> – fiecare produs are date verificate din surse oficiale</li>
+        <li><strong>Transparenta totala</strong> – linkurile de afiliere sunt marcate, disclaimerul este vizibil</li>
+        <li><strong>Focus pe Romania</strong> – produse disponibile efectiv pe piata romaneasca, cu preturi in RON</li>
+        <li><strong>Continut actualizat</strong> – verificam periodic disponibilitatea si relevanta modelelor recomandate</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>Daca ai intrebari, sugestii sau vrei sa ne semnalezi o eroare, ne poti scrie la <strong>contact@espressor-automat-cafea.ro</strong> sau prin pagina de <a href="/contact">Contact</a>.</p>
+    </div>
+  </main>
+  <footer><Footer /></footer>
+</Layout>
+
+<style>
+  .legal-page{padding:6rem 0 5rem}
+  .legal-page h1{margin-bottom:1rem}
+  .legal-page h2{margin-top:2rem;font-size:1.2rem}
+  .legal-page p,.legal-page li{color:var(--c-text-mid);line-height:1.8}
+  .legal-page ul{margin-left:1.5rem;margin-bottom:1rem}
+  .legal-page li{margin-bottom:.35rem}
+</style>
