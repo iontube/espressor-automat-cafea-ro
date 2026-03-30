@@ -1,5 +1,8 @@
 ---
-const year = new Date().getFullYear();
+const now = new Date();
+const year = now.getFullYear();
+const updated = now.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
+const isoDate = now.toISOString().split('T')[0];
 const legalLinks = [
   { href: '/politica-confidentialitate/', label: 'Confidentialitate' },
   { href: '/politica-cookies/', label: 'Cookies' },
@@ -14,7 +17,7 @@ const legalLinks = [
       <a href="/despre-noi/">Despre noi</a>
       {legalLinks.map(l => <a href={l.href} rel="nofollow">{l.label}</a>)}
     </nav>
-    <p class="footer-date">Actualizat: <time datetime="2026-03">martie 2026</time></p>
+    <p class="footer-date">Actualizat: <time datetime={isoDate}>{updated}</time></p>
     <p class="footer-copy">&copy; {year} espressor-automat-cafea.ro</p>
   </div>
 </div>

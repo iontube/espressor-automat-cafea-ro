@@ -1,6 +1,9 @@
 ---
 import products from '../data/products.json';
 const count = products.length;
+const now = new Date();
+const updated = now.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
+const isoDate = now.toISOString().split('T')[0];
 ---
 <section class="hero" id="top">
   <div class="hero-bg">
@@ -9,7 +12,7 @@ const count = products.length;
   </div>
 
   <div class="container hero-container">
-    <div class="hero-badge"><time datetime="2026-03">Actualizat martie 2026</time> &middot; {count} modele analizate</div>
+    <div class="hero-badge"><time datetime={isoDate}>Actualizat {updated}</time> &middot; {count} modele analizate</div>
 
     <h1>Cel mai bun espressor automat cafea boabe – {count} modele comparate</h1>
 
