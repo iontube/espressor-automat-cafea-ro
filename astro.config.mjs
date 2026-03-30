@@ -18,6 +18,7 @@ export default defineConfig({
       '/contact/',
       '/out/',
     ].some(p => page.includes(p)),
+    serialize: (item) => ({ ...item, lastmod: new Date() }),
   })],
   compressHTML: true,
   vite: {
