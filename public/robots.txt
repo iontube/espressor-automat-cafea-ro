@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://espressor-automat-cafea.ro/sitemap-index.xml
+Sitemap: https://espressor-automat-cafea.ro/sitemap.xml

@@ -20,6 +20,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Update sitemap lastmod
+        run: node scripts/update-sitemap.mjs
+
       - name: Generate redirects
         run: node scripts/generate-redirects.mjs
 
